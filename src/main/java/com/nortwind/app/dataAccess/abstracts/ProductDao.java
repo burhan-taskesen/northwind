@@ -1,5 +1,6 @@
 package com.nortwind.app.dataAccess.abstracts;
 
+import com.nortwind.app.core.utilities.results.Result;
 import com.nortwind.app.entities.concretes.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
