@@ -7,6 +7,7 @@ import com.nortwind.app.core.utilities.results.Result;
 import com.nortwind.app.core.utilities.results.SuccessDataResult;
 import com.nortwind.app.dataAccess.abstracts.ProductDao;
 import com.nortwind.app.entities.concretes.Product;
+import com.nortwind.app.entities.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,11 @@ public class ProductsController {
     @GetMapping("/getall")
     public DataResult<List<Product>> getAll(){
         return productService.getAll();
+    }
+
+    @GetMapping("/getProductWithCategoryDetails")
+    public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails(){
+        return productService.getProductWithCategoryDetails();
     }
 
     @GetMapping("/getallpageable")

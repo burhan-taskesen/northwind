@@ -8,12 +8,14 @@ import com.nortwind.app.core.utilities.results.SuccessResult;
 import com.nortwind.app.dataAccess.abstracts.ProductDao;
 import com.nortwind.app.entities.concretes.Category;
 import com.nortwind.app.entities.concretes.Product;
+import com.nortwind.app.entities.dtos.ProductWithCategoryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -120,5 +122,10 @@ public class ProductManager implements ProductService {
             sort = Sort.by(Sort.Direction.ASC,"productId");
 
         return new SuccessDataResult(productDao.findAll(sort),"Ürünler listelendi.");
+    }
+
+    @Override
+    public DataResult<List<ProductWithCategoryDto>> getProductWithCategoryDetails() {
+        return new SuccessDataResult(productDao.getProductWithCategoryDetails(),"Ürünler listelendi.");
     }
 }
