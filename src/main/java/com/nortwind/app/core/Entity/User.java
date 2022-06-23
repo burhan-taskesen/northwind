@@ -20,12 +20,12 @@ public class User {
 
     @Column(name = "email")
     @Email
-    @NotBlank
-    @NotNull
+    @NotBlank(message = "email boş bırakılamaz.")
+    @NotNull(message = "email boş bırakılamaz.")
     private String email;
 
     @Column(name = "password")
-    @NotBlank
-    @NotNull
+    @NotBlank(message = "şifre boş bırakılamaz.")
+    @NotNull(message = "şifre boş bırakılamaz.")
     private String password;
 }
